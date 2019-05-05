@@ -1,0 +1,13 @@
+<resources>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 设置activity切换动画 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:screenOrientation">landscape</item>
+        <item name="android:configChanges">keyboardHidden|orientation|screenSize</item>
+    </style>
+
+</resources>
