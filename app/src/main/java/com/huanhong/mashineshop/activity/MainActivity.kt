@@ -12,6 +12,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
+//        webview.loadUrl("http://kouhong.8126f.com/mobile.php?s=/index/index/platid/1.html")
         webview.loadUrl("http://kouhong.8126f.com/mobile.php?s=/index/index/platid/1.html")
 
 

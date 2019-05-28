@@ -26,8 +26,7 @@ public class AppApplication extends Application {
     /**
      * 初始化云推送通道
      * @param applicationContext
-     */
-    private void initPushService(final Context applicationContext) {
+     */private void initPushService(final Context applicationContext) {
         PushServiceFactory.init(applicationContext);
         final CloudPushService pushService = PushServiceFactory.getCloudPushService();
         pushService.register(applicationContext, new CommonCallback() {
@@ -38,6 +37,7 @@ public class AppApplication extends Application {
             }
             @Override
             public void onFailed(String errorCode, String errorMessage) {
+
                 Log.e(TAG, "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
                 //setConsoleText("init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
             }

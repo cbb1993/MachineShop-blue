@@ -27,7 +27,7 @@ public class WaitForPhoneConfirmActivity extends BaseActivity{
                 try {
                     Thread.sleep(5000);
                     // 收到确认消息 跳转游戏
-                    startActivity(new Intent(WaitForPhoneConfirmActivity.this,MainActivity.class));
+                    startActivity(new Intent(WaitForPhoneConfirmActivity.this,StartGameActivity.class));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -43,6 +43,6 @@ public class WaitForPhoneConfirmActivity extends BaseActivity{
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void receive(String msg){
         // 收到确认消息 跳转游戏
-        startActivity(new Intent(WaitForPhoneConfirmActivity.this,MainActivity.class));
+        startActivity(new Intent(WaitForPhoneConfirmActivity.this,StartGameActivity.class));
     }
 }

@@ -2,6 +2,7 @@ package com.huanhong.mashineshop.activity
 
 import android.content.Intent
 import android.support.v7.widget.GridLayoutManager
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -10,6 +11,8 @@ import com.huanhong.mashineshop.R
 import com.huanhong.mashineshop.adapter.CommonAdapter
 import com.huanhong.mashineshop.adapter.ViewHolder
 import kotlinx.android.synthetic.main.activity_goods.*
+import okhttp3.*
+import java.io.IOException
 
 class GoodsActivity:BaseActivity(){
     override fun getContentViewId(): Int {
@@ -35,6 +38,7 @@ class GoodsActivity:BaseActivity(){
             list.add(""+i)
         }
 
+        test()
 
         recycler_goods.layoutManager = GridLayoutManager(this,4)
 
@@ -66,5 +70,27 @@ class GoodsActivity:BaseActivity(){
             }
 
         }
+    }
+
+
+    private fun test(){
+        val url = "https://api.apiopen.top/recommendPoetry"
+        val okHttpClient = OkHttpClient()
+        val request = Request.Builder()
+                .url(url)
+                .get()//默认就是GET请求，可以不写
+                .build()
+        Log.e("headers->" ,"---"+ request.toString())
+        val call = okHttpClient.newCall(request)
+        call.enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                Log.e("onFailure：",e.message)
+            }
+            @Throws(IOException::class)
+            override fun onResponse(call: Call, response: Response) {
+                val str = String(response.body()!!.bytes())
+                Log.e("onResponse：",str)
+            }
+        })
     }
 }

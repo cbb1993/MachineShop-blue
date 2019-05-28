@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@mipmap/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:background="@mipmap/popup_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ginfo_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:textColor="#fff"
+            android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+       <RelativeLayout
+           android:layout_centerInParent="true"
+           android:layout_width="match_parent"
+           android:layout_height="220dp">
+
+
+           <TextView
+               android:layout_marginLeft="20dp"
+               android:textSize="18sp"
+               android:textColor="#000"
+               android:drawablePadding="5dp"
+               android:gravity="center"
+               android:text="XXXXX"
+               android:drawableLeft="@mipmap/i_ginfo"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+       </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_play"
+            android:textColor="#fff"
+            android:text="Play"
+            android:layout_marginBottom="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shape_play"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+    </RelativeLayout>
+</LinearLayout>

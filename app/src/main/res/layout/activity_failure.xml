@@ -1,16 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:background="@mipmap/popup_bg">
+    <RelativeLayout
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
 
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@mipmap/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
     <TextView
-        android:text="failure"
-        android:textSize="40sp"
+        android:id="@+id/tv_1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="XXXXXXXXXXX"
+        android:textSize="18sp"
         android:textColor="#000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/tv_2"
+        android:layout_below="@+id/tv_1"
+        android:layout_centerHorizontal="true"
+        android:text="XXXXXXXXXXXXXXXXXX"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/iv_fail"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_2"
+        android:src="@mipmap/fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+   <LinearLayout
+       android:layout_alignParentBottom="true"
+       android:layout_width="match_parent"
+       android:layout_height="40dp">
+
+       <TextView
+           android:id="@+id/tv_main"
+           android:background="#f00"
+           android:layout_weight="1"
+           android:gravity="center"
+           android:textColor="#fff"
+           android:text="XXXX"
+           android:textSize="16sp"
+           android:layout_width="0dp"
+           android:layout_height="match_parent" />
+
+       <TextView
+           android:id="@+id/tv_game"
+           android:background="#000"
+           android:layout_weight="1"
+           android:gravity="center"
+           android:textColor="#fff"
+           android:text="XXXX"
+           android:textSize="16sp"
+           android:layout_width="0dp"
+           android:layout_height="match_parent" />
+   </LinearLayout>
+</RelativeLayout>

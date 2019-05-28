@@ -31,7 +31,7 @@
         android:allowBackup="false"
         tools:replace="android:allowBackup"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.GoodsActivity"
+        <activity android:name=".activity.StartActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -165,6 +165,9 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.SuccessActivity" />
         <activity android:name=".activity.FailureActivity" />
+        <activity android:name=".activity.GoodsNumberActivity" />
+        <activity android:name=".activity.GameIntroActivity" />
+        <activity android:name=".activity.StartGameActivity" android:launchMode="singleTask"/>
 
 
         <receiver

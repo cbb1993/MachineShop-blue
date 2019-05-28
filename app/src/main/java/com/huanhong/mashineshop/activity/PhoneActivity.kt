@@ -21,12 +21,12 @@ class PhoneActivity:BaseActivity() {
     }
 
     private var buffer = StringBuffer()
-    private var box_no = 0
+    private var box_no = ""
 
     override fun initView() {
         super.initView()
 
-        box_no = intent.getIntExtra("box_no",0)
+        box_no = intent.getStringExtra("box_no")
 
         setEditTextNoSoftInput(ev_1)
         setEditTextNoSoftInput(ev_2)
