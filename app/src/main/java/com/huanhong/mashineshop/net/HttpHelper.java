@@ -3,6 +3,8 @@ package com.huanhong.mashineshop.net;
 
 import android.content.Context;
 
+import com.google.gson.GsonBuilder;
+
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -54,6 +56,11 @@ public class HttpHelper {
             }
         }
         return mRetrofit;
+    }
+
+
+    public ApiService createApiSerivce() {
+        return getRetrofit().create(ApiService.class);
     }
 
 
@@ -109,7 +116,7 @@ public class HttpHelper {
             checkNotNull(baseUrl);
             Retrofit.Builder builder = new Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                     .baseUrl(baseUrl);
             this.mOkHttpClient = mBuilder.build();
             this.mRetrofit = builder.client(mOkHttpClient)

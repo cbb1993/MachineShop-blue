@@ -7,6 +7,11 @@ import android.webkit.WebViewClient;
 
 import com.huanhong.mashineshop.BaseActivity;
 import com.huanhong.mashineshop.R;
+import com.huanhong.mashineshop.utils.SharedPreferencesUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class SuccessActivity extends BaseActivity{
     @Override
@@ -23,6 +28,7 @@ public class SuccessActivity extends BaseActivity{
     @Override
     protected void initView() {
         super.initView();
+        EventBus.getDefault().register(this);
 
         findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +36,17 @@ public class SuccessActivity extends BaseActivity{
                 startActivity(new Intent(SuccessActivity.this,StartActivity.class));
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void receive(String title) {
+//        SharedPreferencesUtils.readData()
 
 
     }
