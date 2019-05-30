@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.huanhong.mashineshop.BaseActivity;
 import com.huanhong.mashineshop.R;
+import com.huanhong.mashineshop.ReceiveEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -26,11 +27,15 @@ public class WaitForPhoneConfirmActivity extends BaseActivity{
         super.initView();
         EventBus.getDefault().register(this);
     }
-
+/*
+* GameSuccess  | [string]  | 游戏成功
+GameFail  | [string]  | 游戏失败
+GameStart  | [string]  | 游戏开始
+* */
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void receive(String title){
+    public void receive(ReceiveEvent event){
         // 收到确认消息 跳转游戏
-        if("startGame".equals(title)){
+        if("GameSuccess".equals(event.title)){
             startActivity(new Intent(WaitForPhoneConfirmActivity.this,StartGameActivity.class));
         }
     }

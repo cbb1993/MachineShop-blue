@@ -28,8 +28,6 @@ public class SuccessActivity extends BaseActivity{
     @Override
     protected void initView() {
         super.initView();
-        EventBus.getDefault().register(this);
-
         findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,20 +35,4 @@ public class SuccessActivity extends BaseActivity{
             }
         });
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void receive(String title) {
-//        SharedPreferencesUtils.readData()
-
-
-    }
-
-
-
 }

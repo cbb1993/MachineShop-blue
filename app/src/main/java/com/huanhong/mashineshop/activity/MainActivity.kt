@@ -3,6 +3,7 @@ package com.huanhong.mashineshop.activity
 import android.content.Intent
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
+import com.huanhong.mashineshop.ReceiveEvent
 import com.huanhong.mashineshop.utils.SharedPreferencesUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.EventBus
@@ -22,41 +23,44 @@ class MainActivity : BaseActivity() {
         webview.loadUrl("http://kouhong.8126f.com/mobile.php?s=/index/index/platid/1.html")
 
 
-        btn_1.setOnClickListener {
-            skipSuccess()
-        }
-
-        btn_2.setOnClickListener {
-            skipFailure()
-        }
+//        btn_1.setOnClickListener {
+//            skipSuccess()
+//        }
+//
+//        btn_2.setOnClickListener {
+//            skipFailure()
+//        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         EventBus.getDefault().unregister(this)
     }
-
+    /*
+    * GameSuccess  | [string]  | 游戏成功
+    GameFail  | [string]  | 游戏失败
+    GameStart  | [string]  | 游戏开始
+    * */
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun receive(title: String) {
+    fun receive( event : ReceiveEvent) {
         // 收到确认消息 跳转游戏
-        if ("game_success" == title) {
-            skipSuccess()
+        if ("GameStart" == event.title) {
+            skipSuccess(event.content)
         }
-        if ("game_fail" == title) {
+        if ("GameFail" == event.title) {
             skipFailure()
         }
     }
 
-
     override fun onBackPressed() {
         startActivity(Intent(this@MainActivity, GoodsActivity::class.java))
     }
-
     // 游戏成功
-    fun skipSuccess() {
+    fun skipSuccess(number:String) {
         startActivity(Intent(this@MainActivity, SuccessActivity::class.java))
-    }
+        // todo  根据number打开箱子
 
+    }
     // 游戏失败
     fun skipFailure() {
         startActivity(Intent(this@MainActivity, FailureActivity::class.java))
