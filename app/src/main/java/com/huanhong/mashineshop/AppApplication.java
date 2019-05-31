@@ -8,7 +8,9 @@ import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.CommonCallback;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 
-public class AppApplication extends Application {
+import controller.VendApplication;
+
+public class AppApplication extends VendApplication {
     private static final String TAG = "AppApplication";
     public static AppApplication mInstance;
     @Override

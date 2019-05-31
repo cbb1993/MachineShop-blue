@@ -4,6 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ev_"
+            android:inputType="number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_"
+            android:text="提交"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <RelativeLayout
         android:background="#000"
         android:layout_width="match_parent"
@@ -53,5 +68,7 @@
                 android:layout_height="wrap_content" />
         </RelativeLayout>
     </RelativeLayout>
+
+
 
 </LinearLayout>
