@@ -27,7 +27,7 @@
             android:id="@+id/tv_1"
             android:textSize="18sp"
             android:textColor="#000"
-            android:text="XXXXXXXXXX"
+            android:text="게임 한판 하고 "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -36,7 +36,7 @@
             android:layout_below="@+id/tv_1"
             android:textSize="18sp"
             android:textColor="#000"
-            android:text="XXXXXXXXXXXXXXX"
+            android:text="토니모리 화장품 받자! "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

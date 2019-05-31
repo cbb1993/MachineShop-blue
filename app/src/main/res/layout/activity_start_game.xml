@@ -29,12 +29,14 @@
 
 
         <TextView
+            android:textSize="13sp"
             android:textColor="#fff"
-            android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-            android:layout_marginLeft="20dp"
+            android:text="@string/game_des"
+            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content" />
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"/>
 
        <RelativeLayout
            android:layout_centerInParent="true"
@@ -43,12 +45,12 @@
 
 
            <TextView
-               android:layout_marginLeft="20dp"
+               android:layout_marginLeft="10dp"
                android:textSize="18sp"
                android:textColor="#000"
                android:drawablePadding="5dp"
                android:gravity="center"
-               android:text="XXXXX"
+               android:text="게임방법"
                android:drawableLeft="@mipmap/i_ginfo"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content" />

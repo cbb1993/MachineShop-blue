@@ -52,7 +52,7 @@ class GoodsNumberActivity:BaseActivity() {
             startActivity(Intent(this@GoodsNumberActivity,PhoneActivity::class.java)
                     .putExtra("box_no",buffer.toString()))
         }else{
-            Toast.makeText(this,"请输入商品编号",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"죄송합니다. 선택하신 번호에 상품이 없습니다. 다른 번호를 선택해 주세요. ",Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MashineShop</string>
+    <string name="game_des">날아오는 립스틱을 화면을 터치해서 가운데에 위치한 토니모리 제품에 모두 꽂아주세요.\n\n 3단계 까지 성공하시면 선택하신 토니모리 제품을 선물로 드려요!</string>
+    <string name="success_des">짝짝짝! 성공하셨습니다! \n아래 상품 출구에서 상품을 가져가세요.</string>
 </resources>

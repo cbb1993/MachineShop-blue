@@ -85,11 +85,11 @@ class PhoneActivity : BaseActivity() {
                             })
                         }
                         override fun onFailure(msg: String?) {
-                            Toast.makeText(this@PhoneActivity,""+ msg, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@PhoneActivity,"오늘 이미 참여하셨습니다. 다음에 참여해 주세요", Toast.LENGTH_SHORT).show()
                         }
                     })
         } else {
-            Toast.makeText(this, "请输入正确号码", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "请输入正确号码", Toast.LENGTH_SHORT).show()
         }
     }
 
