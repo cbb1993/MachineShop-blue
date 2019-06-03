@@ -64,7 +64,8 @@
         android:name=".AppApplication"
         android:allowBackup="false"
         tools:replace="android:allowBackup"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activity.StartActivity"
             android:launchMode="singleTask">
             <intent-filter>
@@ -219,7 +220,12 @@
             </intent-filter>
         </receiver>
 
-
+        <receiver android:name="controller.BootBroadcastReceiver" >
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <service android:name="controller.VendService"></service>
 
         <!--<activity android:name=".activity.GoodsActivity" />-->
     </application>
