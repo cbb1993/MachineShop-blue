@@ -10,7 +10,7 @@ import com.huanhong.mashineshop.R
 import kotlinx.android.synthetic.main.activity_goods_number.*
 
 
-class GoodsNumberActivity:BaseActivity() {
+class GoodsNumberActivity : BaseActivity() {
     override fun getContentViewId(): Int {
         return R.layout.activity_goods_number
     }
@@ -25,7 +25,7 @@ class GoodsNumberActivity:BaseActivity() {
 
         ev_number.isLongClickable = false
 
-        setOnClickListner(tv_0, tv_1, tv_2, tv_3, tv_4, tv_5, tv_6, tv_7, tv_8, tv_9, tv_delete,btn_confirm)
+        setOnClickListner(tv_0, tv_1, tv_2, tv_3, tv_4, tv_5, tv_6, tv_7, tv_8, tv_9, tv_delete, btn_confirm)
 
         ev_number.requestFocus()
     }
@@ -48,25 +48,30 @@ class GoodsNumberActivity:BaseActivity() {
     }
 
     private fun confirm() {
-        if(buffer.isNotEmpty()){
-            startActivity(Intent(this@GoodsNumberActivity,PhoneActivity::class.java)
-                    .putExtra("box_no",buffer.toString()))
-        }else{
-            Toast.makeText(this,"죄송합니다. 선택하신 번호에 상품이 없습니다. 다른 번호를 선택해 주세요. ",Toast.LENGTH_SHORT).show()
+        if (buffer.isNotEmpty()) {
+            val no = Integer.valueOf(buffer.toString())
+            if (no in 1..64) {
+                startActivity(Intent(this@GoodsNumberActivity, PhoneActivity::class.java)
+                        .putExtra("box_no", buffer.toString()))
+            }else{
+                Toast.makeText(this, "죄송합니다. 선택하신 번호에 상품이 없습니다. 다른 번호를 선택해 주세요. ", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "죄송하지만 상자 번호를 입력하십시오", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun changeNumber(number: Int) {
         var index = ev_number.selectionStart
-        if(number!=-1){ // 如果是输入
+        if (number != -1) { // 如果是输入
             buffer.insert(index, number)
             ev_number.setText(buffer.toString())
             ev_number.setSelection(index + 1)
-        }else{ // 删除
-            if(index==0){
+        } else { // 删除
+            if (index == 0) {
                 return
             }
-            buffer.delete(index-1, index)
+            buffer.delete(index - 1, index)
             ev_number.setText(buffer.toString())
             ev_number.setSelection(index - 1)
         }
@@ -74,17 +79,15 @@ class GoodsNumberActivity:BaseActivity() {
     }
 
 
-
-
     // 利用反射 修改 showSoftInputOnFocus
-    private fun  setEditTextNoSoftInput( editText : EditText) {
+    private fun setEditTextNoSoftInput(editText: EditText) {
 
         val editClass = editText.javaClass.superclass
         try {
             val method = editClass.getMethod("setShowSoftInputOnFocus", Boolean::class.javaPrimitiveType)
-            method.isAccessible =true
-            method.invoke(editText,false)
-        } catch ( e :Exception) {
+            method.isAccessible = true
+            method.invoke(editText, false)
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }

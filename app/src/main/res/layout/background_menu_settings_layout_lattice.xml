@@ -6,13 +6,13 @@
     android:orientation="vertical">
 
 
-    <com.tcn.sdk.latticelpstkdemo.Titlebar
+    <latticelpstkdemo.Titlebar
         android:id="@+id/menu_setttings_titlebar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         >
 
-    </com.tcn.sdk.latticelpstkdemo.Titlebar>
+    </latticelpstkdemo.Titlebar>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,49 +38,49 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD
+                <latticelpstkdemo.ButtonEditSelectD
                     android:id="@+id/menu_lat_query_addr"
                     android:layout_width="0px"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     style="@style/background_lrmarginss">
 
-                </com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD>
+                </latticelpstkdemo.ButtonEditSelectD>
 
-                <com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD
+                <latticelpstkdemo.ButtonEditSelectD
                     android:id="@+id/menu_lat_query_slot"
                     android:layout_width="0px"
                     android:layout_height="100dp"
                     android:layout_weight="1"
                     style="@style/background_lrmarginss">
 
-                </com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD>
+                </latticelpstkdemo.ButtonEditSelectD>
             </LinearLayout>
 
 
-            <com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD
+            <latticelpstkdemo.ButtonEditSelectD
                 android:id="@+id/menu_lat_ship_slot"
                 android:layout_width="match_parent"
                 android:layout_height="100px"
                 style="@style/background_lrmarginss">
 
-            </com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD>
+            </latticelpstkdemo.ButtonEditSelectD>
 
-            <com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD
+            <latticelpstkdemo.ButtonEditSelectD
                 android:id="@+id/menu_lat_reqselect"
                 android:layout_width="match_parent"
                 android:layout_height="100px"
                 style="@style/background_lrmarginss">
 
-            </com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD>
+            </latticelpstkdemo.ButtonEditSelectD>
 
-            <com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD
+            <latticelpstkdemo.ButtonEditSelectD
                 android:id="@+id/menu_lat_select_addr"
                 android:layout_width="match_parent"
                 android:layout_height="100px"
                 style="@style/background_lrmarginss">
 
-            </com.tcn.sdk.latticelpstkdemo.ButtonEditSelectD>
+            </latticelpstkdemo.ButtonEditSelectD>
 
             <LinearLayout
                 android:layout_width="match_parent"

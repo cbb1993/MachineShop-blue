@@ -202,6 +202,7 @@
         <activity android:name=".activity.GoodsNumberActivity" />
         <activity android:name=".activity.GameIntroActivity" />
         <activity android:name=".activity.StartGameActivity" android:launchMode="singleTask"/>
+        <activity android:name="latticelpstkdemo.MainAct" />
 
 
         <receiver

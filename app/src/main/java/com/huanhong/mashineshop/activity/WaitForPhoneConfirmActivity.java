@@ -26,6 +26,8 @@ public class WaitForPhoneConfirmActivity extends BaseActivity{
     protected void initView() {
         super.initView();
         EventBus.getDefault().register(this);
+
+        startActivity(new Intent(WaitForPhoneConfirmActivity.this,StartGameActivity.class));
     }
 /*
 * GameSuccess  | [string]  | 游戏成功

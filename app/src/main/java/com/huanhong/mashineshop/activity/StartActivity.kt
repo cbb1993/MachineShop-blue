@@ -7,6 +7,7 @@ import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
 import com.tcn.latticelpstkboard.control.TcnVendIF
 import kotlinx.android.synthetic.main.activity_start.*
+import latticelpstkdemo.MainAct
 
 class StartActivity:BaseActivity(){
     override fun getContentViewId(): Int {
@@ -19,7 +20,7 @@ class StartActivity:BaseActivity(){
         Glide.with(this).load(R.drawable.btn_gif).into(iv_)
 
         iv_.setOnClickListener{
-            startActivity(Intent(this@StartActivity,GoodsNumberActivity::class.java))
+            startActivity(Intent(this@StartActivity,MainAct::class.java))
         }
 
         btn_.setOnClickListener {
