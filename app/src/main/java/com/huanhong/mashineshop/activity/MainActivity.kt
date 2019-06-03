@@ -5,22 +5,15 @@ import android.support.v4.app.ActivityCompat
 import android.util.Log
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
-import com.huanhong.mashineshop.ReceiveEvent
+import com.huanhong.mashineshop.utils.SharedPreferencesUtils
 import com.tcn.latticelpstkboard.control.TcnVendEventID
 import com.tcn.latticelpstkboard.control.TcnVendEventResultID
 import com.tcn.latticelpstkboard.control.TcnVendIF
 import com.tcn.latticelpstkboard.control.VendEventInfo
 import com.tencent.smtt.export.external.interfaces.ConsoleMessage
-import com.tencent.smtt.export.external.interfaces.JsResult
 import com.tencent.smtt.sdk.WebChromeClient
-import com.tencent.smtt.sdk.WebView
 import kotlinx.android.synthetic.main.activity_main.*
-import latticelpstkdemo.LoadingDialog
-import latticelpstkdemo.OutDialog
 import latticelpstkdemo.TcnUtilityUI
-import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 class MainActivity : BaseActivity() {
     override fun getContentViewId(): Int {
@@ -28,56 +21,34 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-        EventBus.getDefault().register(this)
-
 
 //        webview.loadUrl("http://kouhong.8126f.com/mobile.php?s=/index/index/platid/1.html")
         webview.loadUrl("http://kouhong.8126f.com/mobile.php?s=/index/index/platid/1.html")
 
 
-//        btn_1.setOnClickListener {
-//            skipSuccess()
-//        }
-//
-//        btn_2.setOnClickListener {
-//            skipFailure()
-//        }
-
-        webview.setWebChromeClient(object :WebChromeClient(){
+        webview.setWebChromeClient(object : WebChromeClient() {
             override fun onConsoleMessage(p0: ConsoleMessage?): Boolean {
-                Log.e("-----",">>>>>"+p0?.message())
+                if (p0 != null) {
+                    if (p0.message() == "game_success") {
+                        skipSuccess(SharedPreferencesUtils.readData("box_no"))
+                    }
+                    if (p0.message() == "game_fail") {
+                        skipFailure()
+                    }
+                }
                 return super.onConsoleMessage(p0)
             }
-
-            override fun onJsAlert(p0: WebView?, p1: String?, p2: String?, p3: JsResult?): Boolean {
-                Log.e("---11--",">>>>>"+p1)
-                Log.e("---22--",">>>>>"+p2)
-                Log.e("---33--",">>>>>"+p3)
-                return super.onJsAlert(p0, p1, p2, p3)
-            }
         })
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        EventBus.getDefault().unregister(this)
-    }
-
-    /*
-    * GameSuccess  | [string]  | 游戏成功
-    GameFail  | [string]  | 游戏失败
-    GameStart  | [string]  | 游戏开始
-    * */
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun receive(event: ReceiveEvent) {
-        // 收到确认消息 跳转游戏
-        if ("GameStart" == event.title) {
-            skipSuccess(event.content)
+        btn_1.setOnClickListener {
+            skipSuccess(SharedPreferencesUtils.readData("box_no"))
         }
-        if ("GameFail" == event.title) {
+
+        btn_2.setOnClickListener {
             skipFailure()
         }
     }
+
 
     override fun onBackPressed() {
         startActivity(Intent(this@MainActivity, GoodsActivity::class.java))
@@ -97,12 +68,14 @@ class MainActivity : BaseActivity() {
 
     // 打开箱子
     private fun open(number: String) {
+        TcnVendIF.getInstance().reqWriteDataShipTest(Integer.valueOf(number), Integer.valueOf(number))
     }
 
     override fun onResume() {
         super.onResume()
         TcnVendIF.getInstance().registerListener(m_vendListener)
     }
+
     override fun onPause() {
         super.onPause()
         TcnVendIF.getInstance().unregisterListener(m_vendListener)
@@ -170,9 +143,7 @@ class MainActivity : BaseActivity() {
                 else -> {
                 }
             }//TcnUtilityUI.getToast(m_MainActivity, getString(R.string.error_seriport));
-            //打开串口错误，一般是串口配置出错
-            ///打开串口错误，一般是串口配置出错
-            //打开串口错误，一般是串口配置出错
+
         }
     }
 

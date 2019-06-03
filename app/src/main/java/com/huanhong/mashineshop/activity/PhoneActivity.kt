@@ -68,7 +68,7 @@ class PhoneActivity : BaseActivity() {
     private fun confirm() {
         if (buffer.length == 8) {
             val map = HashMap<String, String>()
-            map["cell_no"] = "010" + buffer.toString()
+            map["cell_no"] = "010$buffer"
             map["box_no"] = "" + box_no
             HttpHelper.getInstance().createApiSerivce().callUrl(map)
                     .compose(RxSchedulers.io_main())
@@ -77,7 +77,7 @@ class PhoneActivity : BaseActivity() {
                             PushServiceFactory.getCloudPushService().bindAccount("010" + buffer.toString(), object : CommonCallback {
                                 override fun onSuccess(p0: String?) {
                                     SharedPreferencesUtils.addData("cell_no", "010" + buffer.toString())
-                                    SharedPreferencesUtils.addData("box_no", "010$box_no")
+                                    SharedPreferencesUtils.addData("box_no", box_no)
                                     startActivity(Intent(this@PhoneActivity, WaitForPhoneConfirmActivity::class.java))
                                 }
                                 override fun onFailed(p0: String?, p1: String?) {
