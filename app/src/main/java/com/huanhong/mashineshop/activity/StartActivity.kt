@@ -6,6 +6,7 @@ import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory
 import com.bumptech.glide.Glide
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
+import com.huanhong.mashineshop.views.PasswordDialog
 import com.tcn.latticelpstkboard.control.TcnVendIF
 import controller.VendService
 import kotlinx.android.synthetic.main.activity_start.*
@@ -31,6 +32,12 @@ class StartActivity:BaseActivity(){
 
         iv_.setOnClickListener{
             startActivity(Intent(this@StartActivity,GoodsNumberActivity::class.java))
+        }
+
+        view.setOnLongClickListener {
+            PasswordDialog(this@StartActivity).show()
+
+            false
         }
     }
 

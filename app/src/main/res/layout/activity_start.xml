@@ -53,6 +53,13 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_alignParentBottom="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
     </RelativeLayout>
 
 
