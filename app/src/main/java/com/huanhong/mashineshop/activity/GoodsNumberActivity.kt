@@ -35,17 +35,6 @@ class GoodsNumberActivity : BaseActivity() {
             onBackPressed()
         }
 
-        if(open){
-            tv_all.visibility =View.VISIBLE
-        }else{
-            tv_all.visibility =View.GONE
-        }
-
-        tv_all.setOnClickListener {
-            for(i in 1 ..64){
-                TcnVendIF.getInstance().reqWriteDataShipTest(i,i)
-            }
-        }
     }
 
     override fun onClick(v: View) {
