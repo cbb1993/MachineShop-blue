@@ -2,12 +2,14 @@ package com.huanhong.mashineshop.views;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huanhong.mashineshop.R;
+import com.huanhong.mashineshop.activity.GoodsNumberActivity;
 import com.tcn.latticelpstkboard.control.TcnVendIF;
 
 /**
@@ -35,7 +37,7 @@ public class ChooseDialog extends Dialog {
         tv_open.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TcnVendIF.getInstance().reqWriteDataShipTest(1, 64);
+                getContext().startActivity(new Intent(getContext(), GoodsNumberActivity.class).putExtra("open",true));
                 dismiss();
             }
         });

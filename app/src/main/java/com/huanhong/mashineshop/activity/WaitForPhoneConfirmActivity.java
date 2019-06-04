@@ -38,6 +38,13 @@ public class WaitForPhoneConfirmActivity extends BaseActivity {
                 startActivity(new Intent(WaitForPhoneConfirmActivity.this, StartGameActivity.class));
             }
         });
+
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WaitForPhoneConfirmActivity.this,StartActivity.class));
+            }
+        });
     }
 
     /*

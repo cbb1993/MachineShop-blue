@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
+import com.tcn.latticelpstkboard.control.TcnVendIF
 import kotlinx.android.synthetic.main.activity_goods_number.*
 
 
@@ -16,10 +17,11 @@ class GoodsNumberActivity : BaseActivity() {
     }
 
     private var buffer = StringBuffer()
+    private var open = false
 
     override fun initView() {
         super.initView()
-
+        open = intent.getBooleanExtra("open",false)
 
         setEditTextNoSoftInput(ev_number)
 
@@ -28,6 +30,22 @@ class GoodsNumberActivity : BaseActivity() {
         setOnClickListner(tv_0, tv_1, tv_2, tv_3, tv_4, tv_5, tv_6, tv_7, tv_8, tv_9, tv_delete, btn_confirm)
 
         ev_number.requestFocus()
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
+
+        if(open){
+            tv_all.visibility =View.VISIBLE
+        }else{
+            tv_all.visibility =View.GONE
+        }
+
+        tv_all.setOnClickListener {
+            for(i in 1 ..64){
+                TcnVendIF.getInstance().reqWriteDataShipTest(i,i)
+            }
+        }
     }
 
     override fun onClick(v: View) {
@@ -48,11 +66,17 @@ class GoodsNumberActivity : BaseActivity() {
     }
 
     private fun confirm() {
+
         if (buffer.isNotEmpty()) {
             val no = Integer.valueOf(buffer.toString())
             if (no in 1..64) {
-                startActivity(Intent(this@GoodsNumberActivity, PhoneActivity::class.java)
-                        .putExtra("box_no", buffer.toString()))
+
+                if(open){
+                    TcnVendIF.getInstance().reqWriteDataShipTest(Integer.valueOf(buffer.toString()),Integer.valueOf(buffer.toString()))
+                }else{
+                    startActivity(Intent(this@GoodsNumberActivity, PhoneActivity::class.java)
+                            .putExtra("box_no", buffer.toString()))
+                }
             }else{
                 Toast.makeText(this, "죄송합니다. 선택하신 번호에 상품이 없습니다. 다른 번호를 선택해 주세요. ", Toast.LENGTH_SHORT).show()
             }

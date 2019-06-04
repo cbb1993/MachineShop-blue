@@ -43,6 +43,10 @@ class PhoneActivity : BaseActivity() {
         setOnClickListner(tv_0, tv_1, tv_2, tv_3, tv_4, tv_5, tv_6, tv_7, tv_8, tv_9, tv_delete, btn_confirm)
 
         ev_1.requestFocus()
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     override fun onClick(v: View) {

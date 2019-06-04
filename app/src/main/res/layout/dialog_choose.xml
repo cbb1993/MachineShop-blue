@@ -18,7 +18,7 @@
         android:paddingLeft="20dp"
         android:textColor="#000"
         android:textSize="15sp"
-        android:text="全部开箱"
+        android:text="开箱"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
     <View

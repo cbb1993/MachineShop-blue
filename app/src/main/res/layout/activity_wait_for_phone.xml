@@ -37,4 +37,16 @@
        android:text="skip"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content" />
+
+    <Button
+        android:textSize="13sp"
+        android:id="@+id/btn_back"
+        android:textColor="#fff"
+        android:text="홈으로"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_play"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
 </RelativeLayout>
