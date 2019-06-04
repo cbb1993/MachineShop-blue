@@ -32,9 +32,13 @@ class StartActivity:BaseActivity(){
         iv_.setOnClickListener{
             startActivity(Intent(this@StartActivity,GoodsNumberActivity::class.java))
         }
-        unbind()
     }
 
+
+    override fun onResume() {
+        super.onResume()
+        unbind()
+    }
     private fun unbind() {
         PushServiceFactory.getCloudPushService().unbindAccount(object : CommonCallback {
             override fun onSuccess(s: String) {

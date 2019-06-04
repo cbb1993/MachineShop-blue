@@ -50,6 +50,21 @@ public class WaitForPhoneConfirmActivity extends BaseActivity {
         // 收到确认消息 跳转游戏
         if ("GameStart".equals(event.title)) {
             startActivity(new Intent(WaitForPhoneConfirmActivity.this, StartGameActivity.class));
+            unbind();
         }
+    }
+
+
+    private void unbind() {
+        PushServiceFactory.getCloudPushService().unbindAccount(new CommonCallback() {
+            @Override
+            public void onSuccess(String s) {
+            }
+            @Override
+            public void onFailed(String s, String s1) {
+
+            }
+        });
+
     }
 }
