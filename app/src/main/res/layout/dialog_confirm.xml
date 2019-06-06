@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="340dp"
+    android:layout_height="220dp"
+    android:background="#fff">
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:text="힌트"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+   <TextView
+       android:id="@+id/tv_content"
+       android:textColor="#000"
+       android:textSize="16sp"
+       android:layout_margin="10dp"
+       android:layout_centerInParent="true"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+    <View
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="#efefef"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    <TextView
+        android:id="@+id/btn_confirm"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="확정"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+</RelativeLayout>

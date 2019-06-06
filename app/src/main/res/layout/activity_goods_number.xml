@@ -101,7 +101,7 @@
             <TextView
                 android:id="@+id/tv_1"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:background="#444"
                 android:textColor="#fff"
                 android:gravity="center"
@@ -112,7 +112,7 @@
             <TextView
                 android:id="@+id/tv_2"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:background="#444"
                 android:textColor="#fff"
@@ -124,7 +124,7 @@
             <TextView
                 android:id="@+id/tv_3"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:background="#444"
                 android:textColor="#fff"
@@ -145,7 +145,7 @@
             <TextView
                 android:id="@+id/tv_4"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:background="#444"
                 android:textColor="#fff"
                 android:gravity="center"
@@ -156,7 +156,7 @@
             <TextView
                 android:id="@+id/tv_5"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:background="#444"
                 android:textColor="#fff"
@@ -168,7 +168,7 @@
             <TextView
                 android:id="@+id/tv_6"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:background="#444"
                 android:textColor="#fff"
@@ -188,7 +188,7 @@
             <TextView
                 android:id="@+id/tv_7"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:background="#444"
                 android:textColor="#fff"
                 android:gravity="center"
@@ -199,7 +199,7 @@
             <TextView
                 android:id="@+id/tv_8"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:background="#444"
                 android:textColor="#fff"
@@ -211,7 +211,7 @@
             <TextView
                 android:id="@+id/tv_9"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:background="#444"
                 android:textColor="#fff"
@@ -231,7 +231,7 @@
             <TextView
                 android:id="@+id/tv_0"
                 android:layout_width="170dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:background="#444"
                 android:textColor="#fff"
                 android:gravity="center"
@@ -242,7 +242,7 @@
             <TextView
                 android:id="@+id/tv_delete"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="10dp"
                 android:background="#444"
                 android:textColor="#fff"

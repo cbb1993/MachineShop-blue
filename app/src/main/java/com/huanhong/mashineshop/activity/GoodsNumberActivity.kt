@@ -4,9 +4,9 @@ package com.huanhong.mashineshop.activity
 import android.content.Intent
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
+import com.huanhong.mashineshop.views.ConfirmDialog
 import com.tcn.latticelpstkboard.control.TcnVendIF
 import kotlinx.android.synthetic.main.activity_goods_number.*
 
@@ -64,10 +64,10 @@ class GoodsNumberActivity : BaseActivity() {
                             .putExtra("box_no", buffer.toString()))
                 }
             }else{
-                Toast.makeText(this, "죄송합니다. 선택하신 번호에 상품이 없습니다. 다른 번호를 선택해 주세요. ", Toast.LENGTH_SHORT).show()
+                ConfirmDialog(this,"죄송합니다. 선택하신 번호에 상품이 없습니다. 다른 번호를 선택해 주세요. ").show()
             }
         } else {
-            Toast.makeText(this, "죄송하지만 상자 번호를 입력하십시오", Toast.LENGTH_SHORT).show()
+            ConfirmDialog(this,"죄송하지만 상자 번호를 입력하십시오").show()
         }
     }
 

@@ -2,23 +2,18 @@ package com.huanhong.mashineshop.activity
 
 
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
 import com.alibaba.sdk.android.push.CommonCallback
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
-import com.huanhong.mashineshop.net.ApiService
 import com.huanhong.mashineshop.net.HttpHelper
 import com.huanhong.mashineshop.net.rx.RxSchedulers
 import com.huanhong.mashineshop.net.rx.RxSubscriber
 import com.huanhong.mashineshop.utils.SharedPreferencesUtils
+import com.huanhong.mashineshop.views.ConfirmDialog
 import kotlinx.android.synthetic.main.activity_phone.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class PhoneActivity : BaseActivity() {
@@ -89,11 +84,11 @@ class PhoneActivity : BaseActivity() {
                             })
                         }
                         override fun onFailure(msg: String?) {
-                            Toast.makeText(this@PhoneActivity,"오늘 이미 참여하셨습니다. 다음에 참여해 주세요", Toast.LENGTH_SHORT).show()
+                            ConfirmDialog(this@PhoneActivity,"오늘 이미 참여하셨습니다. 다음에 참여해 주세요").show()
                         }
                     })
         } else {
-//            Toast.makeText(this, "请输入正确号码", Toast.LENGTH_SHORT).show()
+            ConfirmDialog(this@PhoneActivity,"정확한 핸드폰 번호를 입력해주세요.").show()
         }
     }
 
