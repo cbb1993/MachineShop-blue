@@ -34,7 +34,6 @@ class GoodsNumberActivity : BaseActivity() {
         back.setOnClickListener {
             onBackPressed()
         }
-
     }
 
     override fun onClick(v: View) {
@@ -55,11 +54,9 @@ class GoodsNumberActivity : BaseActivity() {
     }
 
     private fun confirm() {
-
         if (buffer.isNotEmpty()) {
             val no = Integer.valueOf(buffer.toString())
             if (no in 1..64) {
-
                 if(open){
                     TcnVendIF.getInstance().reqWriteDataShipTest(Integer.valueOf(buffer.toString()),Integer.valueOf(buffer.toString()))
                 }else{
@@ -88,13 +85,11 @@ class GoodsNumberActivity : BaseActivity() {
             ev_number.setText(buffer.toString())
             ev_number.setSelection(index - 1)
         }
-
     }
 
 
     // 利用反射 修改 showSoftInputOnFocus
     private fun setEditTextNoSoftInput(editText: EditText) {
-
         val editClass = editText.javaClass.superclass
         try {
             val method = editClass.getMethod("setShowSoftInputOnFocus", Boolean::class.javaPrimitiveType)
