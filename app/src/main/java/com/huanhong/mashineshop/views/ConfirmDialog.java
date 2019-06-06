@@ -18,13 +18,13 @@ import com.huanhong.mashineshop.R;
  * describe:
  */
 public class ConfirmDialog extends Dialog {
-    public ConfirmDialog(Context context,String content) {
+    public ConfirmDialog(Context context,int content) {
         super(context,R.style.app_dialog);
         init(content);
     }
 
     private TextView tv_content;
-    private void init(String content) {
+    private void init(int content) {
         setContentView(R.layout.dialog_confirm);
         setCanceledOnTouchOutside(false);
         if (getWindow() != null) {

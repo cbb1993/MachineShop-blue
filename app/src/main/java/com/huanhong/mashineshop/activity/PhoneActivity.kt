@@ -85,11 +85,11 @@ class PhoneActivity : BaseActivity() {
                             })
                         }
                         override fun onFailure(msg: String?) {
-                            ConfirmDialog(this@PhoneActivity,"오늘 이미 참여하셨습니다. 다음에 참여해 주세요").show()
+                            ConfirmDialog(this@PhoneActivity,R.string.alert_input_phone_error).show()
                         }
                     })
         } else {
-            ConfirmDialog(this@PhoneActivity,"정확한 핸드폰 번호를 입력해주세요.").show()
+            ConfirmDialog(this@PhoneActivity,R.string.alert_input_phone).show()
         }
     }
 

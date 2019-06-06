@@ -64,10 +64,10 @@ class GoodsNumberActivity : BaseActivity() {
                             .putExtra("box_no", buffer.toString()))
                 }
             }else{
-                ConfirmDialog(this,"죄송합니다. 선택하신 번호에 상품이 없습니다. 다른 번호를 선택해 주세요. ").show()
+                ConfirmDialog(this,R.string.alert_box).show()
             }
         } else {
-            ConfirmDialog(this,"죄송하지만 상자 번호를 입력하십시오").show()
+            ConfirmDialog(this,R.string.alert_input_box).show()
         }
     }
 
