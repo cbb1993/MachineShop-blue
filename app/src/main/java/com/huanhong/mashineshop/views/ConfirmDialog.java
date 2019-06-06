@@ -15,7 +15,7 @@ import com.huanhong.mashineshop.R;
  */
 public class ConfirmDialog extends Dialog {
     public ConfirmDialog(Context context,String content) {
-        super(context);
+        super(context,R.style.app_dialog);
         init(content);
     }
 
