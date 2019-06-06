@@ -29,7 +29,7 @@ public class PasswordDialog extends Dialog {
     private void init() {
         setContentView(R.layout.dialog_password);
         setCanceledOnTouchOutside(false);
-
+        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         tv_cancel = findViewById(R.id.tv_cancel);
         tv_confirm = findViewById(R.id.tv_confirm);
         et_password = findViewById(R.id.et_password);

@@ -23,7 +23,7 @@ public class ConfirmDialog extends Dialog {
     private void init(String content) {
         setContentView(R.layout.dialog_confirm);
         setCanceledOnTouchOutside(false);
-
+        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         tv_content = findViewById(R.id.tv_content);
         tv_content.setText(content);
 

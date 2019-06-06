@@ -30,7 +30,7 @@ public class ChooseDialog extends Dialog {
     private void init() {
         setContentView(R.layout.dialog_choose);
         setCanceledOnTouchOutside(false);
-
+      getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         tv_open = findViewById(R.id.tv_open);
         tv_finish = findViewById(R.id.tv_finish);
 
