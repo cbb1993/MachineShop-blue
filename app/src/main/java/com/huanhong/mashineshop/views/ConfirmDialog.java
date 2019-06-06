@@ -2,7 +2,11 @@ package com.huanhong.mashineshop.views;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.huanhong.mashineshop.R;
@@ -23,7 +27,14 @@ public class ConfirmDialog extends Dialog {
     private void init(String content) {
         setContentView(R.layout.dialog_confirm);
         setCanceledOnTouchOutside(false);
-        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        if (getWindow() != null) {
+            WindowManager.LayoutParams attr = getWindow().getAttributes();
+            if (attr != null) {
+                attr.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                attr.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                attr.gravity = Gravity.CENTER;//设置dialog 在布局中的位置
+            }
+        }
         tv_content = findViewById(R.id.tv_content);
         tv_content.setText(content);
 

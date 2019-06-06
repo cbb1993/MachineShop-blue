@@ -3,7 +3,10 @@ package com.huanhong.mashineshop.views;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +24,7 @@ import com.tcn.latticelpstkboard.control.TcnVendIF;
 public class ChooseDialog extends Dialog {
 
     public ChooseDialog(Context context) {
-        super(context);
+        super(context,R.style.app_dialog);
         init();
     }
 
@@ -30,7 +33,14 @@ public class ChooseDialog extends Dialog {
     private void init() {
         setContentView(R.layout.dialog_choose);
         setCanceledOnTouchOutside(false);
-      getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        if (getWindow() != null) {
+            WindowManager.LayoutParams attr = getWindow().getAttributes();
+            if (attr != null) {
+                attr.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                attr.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                attr.gravity = Gravity.CENTER;//设置dialog 在布局中的位置
+            }
+        }
         tv_open = findViewById(R.id.tv_open);
         tv_finish = findViewById(R.id.tv_finish);
 

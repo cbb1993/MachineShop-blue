@@ -2,7 +2,10 @@ package com.huanhong.mashineshop.views;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +22,7 @@ public class PasswordDialog extends Dialog {
     private static String password = "123";
 
     public PasswordDialog(Context context) {
-        super(context);
+        super(context,R.style.app_dialog);
         init();
     }
 
@@ -29,7 +32,14 @@ public class PasswordDialog extends Dialog {
     private void init() {
         setContentView(R.layout.dialog_password);
         setCanceledOnTouchOutside(false);
-        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        if (getWindow() != null) {
+            WindowManager.LayoutParams attr = getWindow().getAttributes();
+            if (attr != null) {
+                attr.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                attr.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                attr.gravity = Gravity.CENTER;//设置dialog 在布局中的位置
+            }
+        }
         tv_cancel = findViewById(R.id.tv_cancel);
         tv_confirm = findViewById(R.id.tv_confirm);
         et_password = findViewById(R.id.et_password);
