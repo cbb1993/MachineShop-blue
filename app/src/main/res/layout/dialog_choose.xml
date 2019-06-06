@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:textColor="#000"
         android:textSize="20sp"
-        android:text="请选择操作"
+        android:text="조작 선택"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
@@ -22,7 +22,7 @@
         android:paddingLeft="20dp"
         android:textColor="#000"
         android:textSize="15sp"
-        android:text="开箱"
+        android:text="트렁크"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
     <View
@@ -37,7 +37,7 @@
         android:paddingLeft="20dp"
         android:textColor="#000"
         android:textSize="15sp"
-        android:text="退出应用"
+        android:text="로그아웃"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
     <View
