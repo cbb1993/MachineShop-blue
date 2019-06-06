@@ -94,6 +94,7 @@
     <style name="app_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item> <!--Dialog的windowFrame框为无 -->
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
 </resources>
