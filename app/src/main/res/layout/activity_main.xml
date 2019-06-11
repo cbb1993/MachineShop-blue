@@ -11,6 +11,7 @@
 
 
   <Button
+      android:visibility="gone"
       android:id="@+id/btn_1"
       android:textColor="#fff"
       android:text="success"
@@ -19,6 +20,7 @@
       android:layout_height="wrap_content" />
 
   <Button
+      android:visibility="gone"
      android:layout_alignParentRight="true"
       android:id="@+id/btn_2"
       android:textColor="#fff"

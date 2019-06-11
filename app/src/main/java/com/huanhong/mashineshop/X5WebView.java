@@ -56,15 +56,15 @@ public class X5WebView extends WebView {
          webSetting.setDatabaseEnabled(true);
         webSetting.setDomStorageEnabled(true);
         webSetting.setGeolocationEnabled(true);
-        webSetting.setAppCacheMaxSize(Long.MAX_VALUE);
+//        webSetting.setAppCacheMaxSize(Long.MAX_VALUE);
         // webSetting.setPageCacheCapacity(IX5WebSettings.DEFAULT_CACHE_CAPACITY);
         webSetting.setPluginState(WebSettings.PluginState.ON_DEMAND);
         // webSetting.setRenderPriority(WebSettings.RenderPriority.HIGH);
-        webSetting.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        webSetting.setCacheMode(WebSettings.LOAD_NO_CACHE);
 
         webSetting.setDomStorageEnabled(true); // 开启 DOM storage API 功能
-        webSetting.setDatabaseEnabled(true);   //开启 database storage API 功能
-        webSetting.setAppCacheEnabled(true);//开启 Application Caches 功能
+//        webSetting.setDatabaseEnabled(true);   //开启 database storage API 功能
+//        webSetting.setAppCacheEnabled(true);//开启 Application Caches 功能
 
 //        webSetting.setAllowFileAccess(true);
 //        webSetting.setAllowFileAccessFromFileURLs(true);
