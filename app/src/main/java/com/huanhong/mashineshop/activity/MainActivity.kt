@@ -3,6 +3,7 @@ package com.huanhong.mashineshop.activity
 import android.content.Intent
 import android.support.v4.app.ActivityCompat
 import android.util.Log
+import android.view.View
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
 import com.huanhong.mashineshop.utils.SharedPreferencesUtils
@@ -21,7 +22,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-
+        webview.setLayerType(View.LAYER_TYPE_HARDWARE,null)
 //        webview.loadUrl("http://kouhong.8126f.com/mobile.php?s=/index/index/platid/1.html")
         webview.loadUrl("https://img.aiairy.com/game/index.html")
 
@@ -147,4 +148,16 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if (webview != null) {
+            webview.clearHistory()
+            webview.clearHistory()
+            webview.stopLoading()
+            webview.clearHistory()
+            webview.clearCache(true)
+            webview.loadUrl("about:blank")
+            webview.pauseTimers()
+        }
+    }
 }
