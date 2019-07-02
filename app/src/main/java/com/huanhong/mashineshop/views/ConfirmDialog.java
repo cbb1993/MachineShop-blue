@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.huanhong.mashineshop.R;
@@ -18,13 +19,13 @@ import com.huanhong.mashineshop.R;
  * describe:
  */
 public class ConfirmDialog extends Dialog {
-    public ConfirmDialog(Context context,int content) {
+    public ConfirmDialog(Context context,int content,int confirm ,ConfirmCallback callback) {
         super(context,R.style.app_dialog);
-        init(content);
+        init(content,confirm,callback);
     }
 
-    private TextView tv_content;
-    private void init(int content) {
+    private ImageView iv_content,iv_confirm;
+    private void init(int content, int confirm , final ConfirmCallback callback) {
         setContentView(R.layout.dialog_confirm);
         setCanceledOnTouchOutside(false);
         if (getWindow() != null) {
@@ -35,15 +36,28 @@ public class ConfirmDialog extends Dialog {
                 attr.gravity = Gravity.CENTER;//设置dialog 在布局中的位置
             }
         }
-        tv_content = findViewById(R.id.tv_content);
-        tv_content.setText(content);
+        iv_content = findViewById(R.id.iv_content);
+        iv_confirm = findViewById(R.id.iv_confirm);
+        iv_content.setImageResource(content);
+        iv_confirm.setImageResource(confirm);
 
-
-        findViewById(R.id.btn_confirm).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.rl_confirm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+                if(callback!=null){
+                    callback.confirm();
+                }
+            }
+        });
+        findViewById(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
             }
         });
+    }
+    public interface ConfirmCallback{
+        void confirm();
     }
 }

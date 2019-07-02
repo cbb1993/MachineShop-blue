@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:background="@mipmap/dialog_bg"
-        android:layout_width="340dp"
-        android:layout_height="220dp">
+        android:layout_width="700dp"
+        android:layout_height="420dp">
         <ImageView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/dialog_error"
-            android:layout_width="40dp"
+            android:src="@mipmap/popup_ic_warning"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <TextView
-            android:padding="10dp"
-            android:gravity="center"
-            android:id="@+id/tv_content"
-            android:textColor="#000"
-            android:textSize="16sp"
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/popup_ic_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_content"
             android:layout_centerInParent="true"
-            android:layout_width="220dp"
-            android:layout_height="90dp" />
-        <View
-            android:layout_marginBottom="40dp"
-            android:layout_alignParentBottom="true"
-            android:background="#efefef"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"/>
-        <TextView
-            android:background="#252629"
-            android:id="@+id/btn_confirm"
-            android:textColor="#fff"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:text="확정"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:id="@+id/rl_confirm"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/popup_btn_blue"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_confirm"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </RelativeLayout>
 
 </RelativeLayout>

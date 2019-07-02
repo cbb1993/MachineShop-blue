@@ -21,18 +21,7 @@ public class SuccessActivity extends BaseActivity{
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this,StartActivity.class));
+        startActivity(new Intent(SuccessActivity.this,StartActivity.class));
     }
 
-
-    @Override
-    protected void initView() {
-        super.initView();
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SuccessActivity.this,StartActivity.class));
-            }
-        });
-    }
 }

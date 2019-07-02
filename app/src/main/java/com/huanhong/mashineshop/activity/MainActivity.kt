@@ -52,7 +52,7 @@ class MainActivity : BaseActivity() {
 
 
     override fun onBackPressed() {
-        startActivity(Intent(this@MainActivity, GoodsActivity::class.java))
+        startActivity(Intent(this@MainActivity, StartActivity::class.java))
     }
 
     // 游戏成功
@@ -60,11 +60,14 @@ class MainActivity : BaseActivity() {
         startActivity(Intent(this@MainActivity, SuccessActivity::class.java))
         // todo  根据number打开箱子
         open(number)
+        finish()
+
     }
 
     // 游戏失败
     fun skipFailure() {
         startActivity(Intent(this@MainActivity, FailureActivity::class.java))
+        finish()
     }
 
     // 打开箱子
@@ -152,12 +155,8 @@ class MainActivity : BaseActivity() {
         super.onDestroy()
         if (webview != null) {
             webview.clearHistory()
-            webview.clearHistory()
-            webview.stopLoading()
-            webview.clearHistory()
             webview.clearCache(true)
             webview.loadUrl("about:blank")
-            webview.pauseTimers()
         }
     }
 }

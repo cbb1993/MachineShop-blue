@@ -4,49 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/popup_bg">
-    <RelativeLayout
-        android:background="#000"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <ImageView
-            android:layout_centerInParent="true"
-            android:src="@mipmap/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
 
 
-    <TextView
-        android:textStyle="bold"
-        android:layout_marginTop="130dp"
-        android:gravity="center"
-        android:id="@+id/tv_1"
+    <ImageView
+        android:id="@+id/text"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/success_des"
-        android:textSize="18sp"
-        android:textColor="#000"
+        android:src="@mipmap/success_font_success"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <ImageView
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/tv_1"
-        android:src="@mipmap/gift"
+        android:layout_below="@+id/text"
+        android:src="@mipmap/success_ic_gift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 
-    <Button
-        android:textSize="13sp"
-        android:id="@+id/btn_back"
-        android:textColor="#fff"
-        android:text="홈으로"
-        android:layout_marginBottom="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/shape_play"
-        android:layout_width="80dp"
-        android:layout_height="80dp" />
+
 </RelativeLayout>

@@ -22,7 +22,7 @@ public class FailureActivity extends BaseActivity {
     protected void initView() {
         super.initView();
 
-        findViewById(R.id.tv_main).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.rl_home).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FailureActivity.this,StartActivity.class));
@@ -30,10 +30,10 @@ public class FailureActivity extends BaseActivity {
         });
 
 
-        findViewById(R.id.tv_game).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.rl_again).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FailureActivity.this,StartGameActivity.class));
+                startActivity(new Intent(FailureActivity.this,MainActivity.class));
             }
         });
     }

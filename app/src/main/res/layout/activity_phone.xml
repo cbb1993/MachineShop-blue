@@ -2,120 +2,133 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/popup_bg">
-    <RelativeLayout
-        android:background="#000"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <ImageView
-            android:layout_centerInParent="true"
-            android:src="@mipmap/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <ImageView
-            android:layout_marginLeft="5dp"
-            android:id="@+id/back"
-            android:padding="8dp"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
-    <Button
-        android:id="@+id/btn_confirm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
-        android:background="#f00"
-        android:text="확인"
-        android:textColor="#fff" />
-
-    <LinearLayout
-        android:id="@+id/ll_des"
-        android:layout_marginTop="60dp"
-        android:orientation="horizontal"
+    android:background="@mipmap/sub_bg">
+    <ImageView
+        android:layout_marginTop="80dp"
+        android:id="@+id/iv_input_font_num"
         android:layout_centerHorizontal="true"
+        android:src="@mipmap/phonenum_font_already"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이벤트 참여를 위해"
-            android:textColor="#000" />
-        <TextView
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 휴대폰 번호"
-            android:textColor="#f00" />
-        <TextView
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="를 입력해 주세요."
-            android:textColor="#000" />
-    </LinearLayout>
-
-
+        android:layout_height="wrap_content" />
     <LinearLayout
-        android:gravity="center"
-        android:id="@+id/ll_edit"
-        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/ll_input_box"
+        android:layout_below="@+id/iv_input_font_num"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_des"
-        android:layout_margin="10dp">
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_input"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/input_bg_phone_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/num_font_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@mipmap/num_font_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:src="@mipmap/num_font_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+                <View
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#000"
+                    android:layout_width="20dp"
+                    android:layout_height="1dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/input_bg_phone_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
+        <View
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="#000"
+            android:layout_width="20dp"
+            android:layout_height="1dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/input_bg_phone_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </RelativeLayout>
 
-        <EditText
-            android:enabled="false"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:background="@drawable/shape_edit"
-            android:gravity="center"
-            android:text="010" />
-
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:text="-" />
-
-        <EditText
-            android:maxLength="4"
-            android:inputType="phone"
-            android:id="@+id/ev_1"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:background="@drawable/shape_edit"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:gravity="center" />
-
-        <EditText
-            android:maxLength="4"
-            android:inputType="phone"
-            android:id="@+id/ev_2"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:background="@drawable/shape_edit"
-            android:gravity="center"/>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/btn_confirm"
-        android:layout_below="@id/ll_edit"
+        android:layout_below="@id/ll_input_box"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:orientation="vertical">
@@ -125,41 +138,24 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
-
-            <TextView
+            <ImageView
                 android:id="@+id/tv_1"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="1"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
+                android:src="@mipmap/keypad_btn_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginLeft="10dp"
                 android:id="@+id/tv_2"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="2"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:src="@mipmap/keypad_btn_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            <TextView
+            <ImageView
+                android:layout_marginLeft="10dp"
                 android:id="@+id/tv_3"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="3"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:src="@mipmap/keypad_btn_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
 
@@ -170,40 +166,25 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:id="@+id/tv_4"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="4"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:src="@mipmap/keypad_btn_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            <TextView
+            <ImageView
+                android:layout_marginLeft="10dp"
                 android:id="@+id/tv_5"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="5"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:src="@mipmap/keypad_btn_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            <TextView
+            <ImageView
+                android:layout_marginLeft="10dp"
                 android:id="@+id/tv_6"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="6"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:src="@mipmap/keypad_btn_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
@@ -213,40 +194,24 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:id="@+id/tv_7"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="7"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:src="@mipmap/keypad_btn_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-            <TextView
+            <ImageView
+                android:layout_marginLeft="10dp"
                 android:id="@+id/tv_8"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
+                android:src="@mipmap/keypad_btn_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="8"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@+id/tv_9"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="9"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:src="@mipmap/keypad_btn_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
@@ -255,30 +220,36 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
-
-            <TextView
+            <ImageView
                 android:id="@+id/tv_0"
-                android:layout_width="170dp"
-                android:layout_height="60dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="0"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_delete"
-                android:layout_width="80dp"
-                android:layout_height="60dp"
+                android:src="@mipmap/keypad_btn_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/shape_phone_number"
-                android:textColor="#000"
-                android:gravity="center"
-                android:text="⬅"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:id="@+id/tv_delete"
+                android:src="@mipmap/keypad_btn_del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/btn_confirm"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@mipmap/bottom_btn_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@mipmap/input_btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
 
 </RelativeLayout>

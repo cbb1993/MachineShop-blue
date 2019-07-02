@@ -2,60 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@mipmap/main_bg">
 
 
-    <RelativeLayout
-        android:background="#000"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <ImageView
-            android:layout_centerInParent="true"
-            android:src="@mipmap/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
 
     <RelativeLayout
-        android:background="@mipmap/main_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:textStyle="bold"
-            android:layout_marginTop="150dp"
+
+        <ImageView
+            android:layout_marginTop="100dp"
+            android:id="@+id/iv_font"
             android:layout_centerHorizontal="true"
-            android:id="@+id/tv_1"
-            android:textSize="30sp"
-            android:textColor="#000"
-            android:text="게임 한판 하고 "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:textStyle="bold"
-            android:id="@+id/tv_2"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/tv_1"
-            android:textSize="30sp"
-            android:textColor="#000"
-            android:text="토니모리 화장품 받자! "
+            android:src="@mipmap/main_font"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <RelativeLayout
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/tv_2"
+        <ImageView
+            android:id="@+id/iv_start"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/iv_font"
             android:layout_centerHorizontal="true"
+            android:src="@mipmap/main_btn_start_nor"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_marginLeft="22dp"
-                android:id="@+id/iv_"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
-
+            android:layout_height="wrap_content" />
 
         <View
             android:id="@+id/view"

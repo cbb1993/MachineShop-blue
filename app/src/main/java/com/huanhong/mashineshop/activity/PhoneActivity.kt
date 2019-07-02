@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import com.alibaba.sdk.android.push.CommonCallback
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory
 import com.huanhong.mashineshop.BaseActivity
@@ -14,6 +15,7 @@ import com.huanhong.mashineshop.net.rx.RxSchedulers
 import com.huanhong.mashineshop.net.rx.RxSubscriber
 import com.huanhong.mashineshop.utils.SharedPreferencesUtils
 import com.huanhong.mashineshop.views.ConfirmDialog
+import com.huanhong.mashineshop.views.ConfirmPopwindow
 import kotlinx.android.synthetic.main.activity_phone.*
 
 
@@ -30,19 +32,9 @@ class PhoneActivity : BaseActivity() {
 
         box_no = intent.getStringExtra("box_no")
 
-        setEditTextNoSoftInput(ev_1)
-        setEditTextNoSoftInput(ev_2)
-
-        ev_1.isLongClickable = false
-        ev_2.isLongClickable = false
 
         setOnClickListner(tv_0, tv_1, tv_2, tv_3, tv_4, tv_5, tv_6, tv_7, tv_8, tv_9, tv_delete, btn_confirm)
 
-        ev_1.requestFocus()
-
-        back.setOnClickListener {
-            onBackPressed()
-        }
     }
 
     override fun onClick(v: View) {
@@ -85,110 +77,71 @@ class PhoneActivity : BaseActivity() {
                             })
                         }
                         override fun onFailure(msg: String?) {
-                            ConfirmDialog(this@PhoneActivity,R.string.alert_input_phone_error).show()
+                             ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_empty,R.mipmap.popup_btn_selectagain,null)
                         }
                     })
         } else {
-            ConfirmDialog(this@PhoneActivity,R.string.alert_input_phone).show()
+            ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_empty,R.mipmap.popup_btn_selectagain,null)
         }
     }
 
     private fun changeNumber(number: Int) {
-        if (number != -1) { // 如果是输入
-            if (buffer.isEmpty()) { // 字符为空 ev_1获取焦点
-                ev_1.requestFocus()
-            } else { //  如果焦点不在ev_1末尾 则不改变  其他让 ev_2 获取焦点
-                if (buffer.length > 3) {
-                    if (ev_1.isFocused && ev_1.selectionStart < 4) {
-
-                    } else {
-                        ev_2.requestFocus()
-                    }
-                }
-            }
-        } else { // 删除
-            if (buffer.isEmpty()) {
-                return
-            }
-            if (ev_2.isFocused) {
-                if (ev_2.selectionStart == 0) {  // 如果位于 ev_2 开始 自动跳到 ev_1末尾
-                    ev_1.requestFocus()
-                    ev_1.setSelection(ev_1.length())
-                }
-            } else if (ev_1.isFocused && ev_1.selectionStart == 0) {
-                return
-            }
-        }
-        if (ev_1.isFocused) {   // 第一段输入框
-            // 找出当前光标位置
-            var index = ev_1.selectionStart
-            if (number == -1 && index > 0) {
-                // 删除
-                buffer.delete(index - 1, index)
-                setInput()
-                ev_1.setSelection(index - 1)
-            } else {
-                // 输入
-                // 长度不够 可以继续输入
-                if (buffer.length < 8) {
-                    var index = ev_1.selectionStart
-                    buffer.insert(index, number)
-                    setInput()
-                    ev_1.setSelection(index + 1)
-                }
-            }
-
-        } else if (ev_2.isFocused) {         // 第二段输入框
-            // 找出当前光标位置
-            var index = ev_2.selectionStart
-            if (number == -1 && index > 0) {
-                // 删除
-                buffer.delete(3 + index, 4 + index)
-                setInput()
-                ev_2.setSelection(index - 1)
-            } else {
-                // 输入
-                if (buffer.length < 4) { // 焦点在ev_2 但是长度不够 先填充ev_1
-                    ev_1.requestFocus()
-                    ev_1.setSelection(ev_1.length())
-                    var index = ev_1.selectionStart
-                    buffer.insert(index, number)
-                    setInput()
-                    ev_1.setSelection(index + 1)
-
-                } else if (buffer.length < 8) {
-                    var index = ev_2.selectionStart
-                    buffer.insert(4 + index, number)
-                    setInput()
-                    ev_2.setSelection(index + 1)
-                }
+        when(number){
+            0 -> {change(number,R.mipmap.num_font_0)}
+            1 -> {change(number,R.mipmap.num_font_1)}
+            2 -> {change(number,R.mipmap.num_font_2)}
+            3 -> {change(number,R.mipmap.num_font_3)}
+            4 -> {change(number,R.mipmap.num_font_4)}
+            5 -> {change(number,R.mipmap.num_font_5)}
+            6 -> {change(number,R.mipmap.num_font_6)}
+            7 -> {change(number,R.mipmap.num_font_7)}
+            8 -> {change(number,R.mipmap.num_font_8)}
+            9 -> { change(number,R.mipmap.num_font_9)}
+            -1 -> {
+                change(number,0)
             }
         }
     }
 
+    private fun change(number: Int,res :Int){
+        if(number == -1){ //删除
+            if(buffer.isNotEmpty()){
+                buffer.deleteCharAt(buffer.length-1)
+            }
+            when(buffer.length){
+                7 ->  iv_8.visibility =View.GONE
+                6 ->  iv_7.visibility =View.GONE
+                5 ->  iv_6.visibility =View.GONE
+                4 ->  iv_5.visibility =View.GONE
+                3 ->  iv_4.visibility =View.GONE
+                2 ->  iv_3.visibility =View.GONE
+                1 ->  iv_2.visibility =View.GONE
+                0 ->  iv_1.visibility =View.GONE
+            }
 
-    private fun setInput() {
-        ev_1.setText("")
-        ev_2.setText("")
-        if (buffer.length < 5) {
-            ev_1.setText(buffer.toString())
-        } else if (buffer.length >= 5) {
-            ev_1.setText(buffer.substring(0, 4))
-            ev_2.setText(buffer.substring(4, buffer.length))
+        }else{ //添加
+            if(buffer.length >=8){
+                return
+            }
+            buffer.append(number)
+
+            when(buffer.length){
+                1 ->  setImage(iv_1,res)
+                2 ->  setImage(iv_2,res)
+                3 ->  setImage(iv_3,res)
+                4 ->  setImage(iv_4,res)
+                5 ->  setImage(iv_5,res)
+                6 ->  setImage(iv_6,res)
+                7 ->  setImage(iv_7,res)
+                8 ->  setImage(iv_8,res)
+            }
+
         }
     }
 
-    // 利用反射 修改 showSoftInputOnFocus
-    private fun setEditTextNoSoftInput(editText: EditText) {
-
-        val editClass = editText.javaClass.superclass
-        try {
-            val method = editClass.getMethod("setShowSoftInputOnFocus", Boolean::class.javaPrimitiveType)
-            method.isAccessible = true
-            method.invoke(editText, false)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+    private fun setImage(view:ImageView,res: Int){
+        view.setImageResource(res)
+        view.visibility =View.VISIBLE
     }
 
 }

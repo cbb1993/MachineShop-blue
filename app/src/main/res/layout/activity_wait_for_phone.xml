@@ -2,28 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/popup_bg">
+    android:background="@mipmap/sub_bg">
 
-    <RelativeLayout
-        android:background="#000"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
 
-        <ImageView
-            android:layout_centerInParent="true"
-            android:src="@mipmap/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
 
-    <!--<TextView-->
-        <!--android:text="XXXXXXXXXXXXXXXxxxxxxXxx"-->
-        <!--android:textSize="20sp"-->
-        <!--android:textColor="#000"-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="wrap_content" />-->
 
     <ImageView
+        android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:src="@mipmap/kakao"
         android:layout_width="match_parent"
@@ -38,15 +23,5 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content" />
 
-    <Button
-        android:textSize="13sp"
-        android:id="@+id/btn_back"
-        android:textColor="#fff"
-        android:text="홈으로"
-        android:layout_marginBottom="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/shape_play"
-        android:layout_width="80dp"
-        android:layout_height="80dp" />
+
 </RelativeLayout>

@@ -3,14 +3,12 @@ package com.huanhong.mashineshop.activity
 import android.content.Intent
 import com.alibaba.sdk.android.push.CommonCallback
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory
-import com.bumptech.glide.Glide
 import com.huanhong.mashineshop.BaseActivity
 import com.huanhong.mashineshop.R
 import com.huanhong.mashineshop.views.PasswordDialog
 import com.tcn.latticelpstkboard.control.TcnVendIF
 import controller.VendService
 import kotlinx.android.synthetic.main.activity_start.*
-import latticelpstkdemo.MainAct
 
 class StartActivity:BaseActivity(){
     override fun getContentViewId(): Int {
@@ -28,9 +26,8 @@ class StartActivity:BaseActivity(){
 
         TcnVendIF.getInstance().LoggerDebug(TAG, "MainAct onCreate()")
 
-        Glide.with(this).load(R.drawable.btn_gif).into(iv_)
 
-        iv_.setOnClickListener{
+        iv_start.setOnClickListener{
             startActivity(Intent(this@StartActivity,GoodsNumberActivity::class.java))
         }
 
