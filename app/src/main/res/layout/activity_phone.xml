@@ -12,7 +12,7 @@
         android:layout_height="wrap_content" />
 
     <ImageView
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:id="@+id/iv_input_font_num"
         android:layout_centerHorizontal="true"
         android:src="@mipmap/phonenum_font_already"
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         android:id="@+id/ll_input_box"
         android:layout_below="@+id/iv_input_font_num"
         android:layout_width="wrap_content"

@@ -57,11 +57,8 @@ class GoodsNumberActivity : BaseActivity() {
                 if(open){
                     TcnVendIF.getInstance().reqWriteDataShipTest(Integer.valueOf(buffer.toString()),Integer.valueOf(buffer.toString()))
                 }else{
-                    ConfirmPopwindow(this,btn_confirm,R.mipmap.popup_font_already,R.mipmap.popup_btn_ok) {
-                        startActivity(Intent(this@GoodsNumberActivity, PhoneActivity::class.java)
-                                .putExtra("box_no", buffer.toString()))
-                    }
-
+                    startActivity(Intent(this@GoodsNumberActivity, PhoneActivity::class.java)
+                            .putExtra("box_no", buffer.toString()))
                 }
             }else{
                 ConfirmPopwindow(this,btn_confirm,R.mipmap.popup_font_empty,R.mipmap.popup_btn_selectagain,null)

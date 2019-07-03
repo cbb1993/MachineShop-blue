@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <ImageView
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:id="@+id/iv_input_font_num"
         android:layout_centerHorizontal="true"
         android:src="@mipmap/input_font_num"
@@ -19,8 +19,8 @@
 
     <RelativeLayout
         android:layout_below="@+id/iv_input_font_num"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         android:id="@+id/rl_input_box"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"

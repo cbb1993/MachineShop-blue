@@ -6,34 +6,33 @@
     android:background="@mipmap/main_bg">
 
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
         <ImageView
-            android:layout_marginTop="100dp"
             android:id="@+id/iv_font"
-            android:layout_centerHorizontal="true"
-            android:src="@mipmap/main_font"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:src="@mipmap/main_font" />
 
         <ImageView
             android:id="@+id/iv_start"
-            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/iv_font"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/main_btn_start_nor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_marginTop="60dp"
+            android:src="@mipmap/main_btn_start_nor" />
 
         <View
             android:id="@+id/view"
-            android:layout_alignParentBottom="true"
             android:layout_width="100dp"
-            android:layout_height="100dp"/>
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
 
