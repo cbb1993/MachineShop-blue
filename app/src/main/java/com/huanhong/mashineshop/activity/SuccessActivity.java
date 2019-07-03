@@ -24,4 +24,20 @@ public class SuccessActivity extends BaseActivity{
         startActivity(new Intent(SuccessActivity.this,StartActivity.class));
     }
 
+    @Override
+    protected void initView() {
+        super.initView();
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    sleep(8000);
+                    startActivity(new Intent(SuccessActivity.this,StartActivity.class));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
 }

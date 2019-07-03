@@ -39,7 +39,13 @@ public class WaitForPhoneConfirmActivity extends BaseActivity {
             }
         });
 
-
+        findViewById(R.id.iv_home).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(WaitForPhoneConfirmActivity.this, StartActivity.class));
+                finish();
+            }
+        });
     }
 
     /*

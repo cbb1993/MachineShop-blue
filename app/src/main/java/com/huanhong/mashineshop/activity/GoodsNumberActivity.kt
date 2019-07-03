@@ -27,7 +27,10 @@ class GoodsNumberActivity : BaseActivity() {
 
         setOnClickListner(tv_0, tv_1, tv_2, tv_3, tv_4, tv_5, tv_6, tv_7, tv_8, tv_9, tv_delete, btn_confirm)
 
-
+        iv_home.setOnClickListener {
+//            startActivity(Intent(this@GoodsNumberActivity, StartActivity::class.java))
+            finish()
+        }
     }
 
     override fun onClick(v: View) {

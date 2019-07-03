@@ -3,7 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/sub_bg">
-
+    <ImageView
+        android:layout_margin="20dp"
+        android:id="@+id/iv_home"
+        android:src="@mipmap/home_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <ImageView
         android:layout_marginTop="80dp"
         android:id="@+id/iv_input_font_num"
