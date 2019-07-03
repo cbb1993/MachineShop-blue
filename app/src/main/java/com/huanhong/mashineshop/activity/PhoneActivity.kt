@@ -77,18 +77,17 @@ class PhoneActivity : BaseActivity() {
                                     startActivity(Intent(this@PhoneActivity, WaitForPhoneConfirmActivity::class.java))
                                 }
                                 override fun onFailed(p0: String?, p1: String?) {
-                                    ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_already,R.mipmap.popup_btn_ok) {
 
-                                    }
                                 }
                             })
                         }
                         override fun onFailure(msg: String?) {
-                             ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_empty,R.mipmap.popup_btn_selectagain,null)
+                            ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_already,R.mipmap.popup_btn_ok,null)
+
                         }
                     })
         } else {
-            ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_empty,R.mipmap.popup_btn_selectagain,null)
+            ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_error,R.mipmap.popup_btn_ok,null)
         }
     }
 
