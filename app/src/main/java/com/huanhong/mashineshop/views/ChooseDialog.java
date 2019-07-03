@@ -32,7 +32,7 @@ public class ChooseDialog extends Dialog {
 
     private void init() {
         setContentView(R.layout.dialog_choose);
-        setCanceledOnTouchOutside(false);
+        setCanceledOnTouchOutside(true);
         if (getWindow() != null) {
             WindowManager.LayoutParams attr = getWindow().getAttributes();
             if (attr != null) {

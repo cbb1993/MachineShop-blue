@@ -23,8 +23,7 @@ class MainActivity : BaseActivity() {
 
     override fun initView() {
         webview.setLayerType(View.LAYER_TYPE_HARDWARE,null)
-//        webview.loadUrl("http://kouhong.8126f.com/mobile.php?s=/index/index/platid/1.html")
-        webview.loadUrl("https://img.aiairy.com/game/index.html")
+        webview.loadUrl("https://game-hongkong.oss-cn-hongkong.aliyuncs.com/game-animal/index.html")
 
 
         webview.setWebChromeClient(object : WebChromeClient() {
