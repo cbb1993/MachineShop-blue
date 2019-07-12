@@ -1,8 +1,10 @@
 package com.huanhong.mashineshop.activity
 
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -61,15 +63,23 @@ class PhoneActivity : BaseActivity() {
     // 输入手机号码后要拨打的URL
     // https://if.vetnim.com/kiosk/lipstic/getCellNo.do?cell_no=핸드폰번호&box_no=28
     // cell_no : 手机号码必须仅限号码 (ex : 01023459878) box_no : 口红挑战的选择框号码
+    @SuppressLint("CheckResult")
     private fun confirm() {
         if (buffer.length == 8) {
             val map = HashMap<String, String>()
             map["cell_no"] = "010$buffer"
             map["box_no"] = "" + box_no
+            map["device_no"] = "" + SharedPreferencesUtils.readData("device_no")
             HttpHelper.getInstance().createApiSerivce().callUrl(map)
                     .compose(RxSchedulers.io_main())
                     .subscribeWith(object : RxSubscriber<Any>() {
                         override fun onSuccess(t: Any?) {
+                            if(t!=null){
+                                if(t.toString() ==("NO")){
+                                    ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_already,R.mipmap.popup_btn_ok,null)
+                                    return
+                                }
+                            }
                             PushServiceFactory.getCloudPushService().bindAccount("010" + buffer.toString(), object : CommonCallback {
                                 override fun onSuccess(p0: String?) {
                                     SharedPreferencesUtils.addData("cell_no", "010" + buffer.toString())
@@ -82,8 +92,7 @@ class PhoneActivity : BaseActivity() {
                             })
                         }
                         override fun onFailure(msg: String?) {
-                            ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_already,R.mipmap.popup_btn_ok,null)
-
+                            ConfirmPopwindow(this@PhoneActivity,btn_confirm,R.mipmap.popup_font_error,R.mipmap.popup_btn_ok,null)
                         }
                     })
         } else {
