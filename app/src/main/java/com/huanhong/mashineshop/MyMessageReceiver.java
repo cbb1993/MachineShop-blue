@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.alibaba.sdk.android.push.MessageReceiver;
 import com.alibaba.sdk.android.push.notification.CPushMessage;
+import com.huanhong.mashineshop.utils.SharedPreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -16,7 +17,11 @@ public class MyMessageReceiver extends MessageReceiver {
     public static final String REC_TAG = "receiver";
     @Override
     public void onNotification(Context context, String title, String summary, Map<String, String> extraMap) {
-        EventBus.getDefault().post(new ReceiveEvent(title,summary));
+        if("GameURI".equals(title)){
+            SharedPreferencesUtils.addData("GameURI",summary);
+        }else {
+            EventBus.getDefault().post(new ReceiveEvent(title,summary));
+        }
         // TODO 处理推送通知
         Log.e("MyMessageReceiver", "Receive notification, title: " + title + ", summary: " + summary + ", extraMap: " + extraMap);
     }

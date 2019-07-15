@@ -2,6 +2,7 @@ package com.huanhong.mashineshop;
 
 import android.app.Application;
 import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.util.Log;
 
@@ -17,13 +18,23 @@ public class AppApplication extends VendApplication {
     private static final String TAG = "AppApplication";
     public static AppApplication mInstance;
     public static MediaPlayer mediaPlayer;
+    private static AudioManager mAudioManager ;
+    private static int currentVolume ;
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
         initPushService(this);
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        currentVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+    }
 
+    public static void resetVolume(){
+        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, currentVolume, 1);
+    }
 
+    public static void addVolume(){
+        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, currentVolume + 3, 1);
     }
 
 

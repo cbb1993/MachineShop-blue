@@ -24,7 +24,11 @@ class MainActivity : BaseActivity() {
 
     override fun initView() {
         webview.setLayerType(View.LAYER_TYPE_HARDWARE,null)
-        webview.loadUrl("https://game-hongkong.oss-cn-hongkong.aliyuncs.com/game-animal/index.html")
+        if(SharedPreferencesUtils.readData("GameURI")!=null&&SharedPreferencesUtils.readData("GameURI")!=""){
+            webview.loadUrl(SharedPreferencesUtils.readData("GameURI"))
+        }else{
+            webview.loadUrl("http://mp.aiairy.com/game/")
+        }
 
 
         webview.setWebChromeClient(object : WebChromeClient() {
@@ -77,12 +81,14 @@ class MainActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
+        AppApplication.addVolume()
         AppApplication.mediaPlayer.pause()
         TcnVendIF.getInstance().registerListener(m_vendListener)
     }
 
     override fun onPause() {
         super.onPause()
+        AppApplication.resetVolume()
         TcnVendIF.getInstance().unregisterListener(m_vendListener)
     }
 

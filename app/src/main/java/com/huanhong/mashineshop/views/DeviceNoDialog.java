@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.sdk.android.push.CommonCallback;
+import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 import com.huanhong.mashineshop.R;
 import com.huanhong.mashineshop.utils.SharedPreferencesUtils;
 
@@ -22,7 +24,7 @@ import com.huanhong.mashineshop.utils.SharedPreferencesUtils;
 public class DeviceNoDialog extends Dialog {
 
     public DeviceNoDialog(Context context) {
-        super(context,R.style.app_dialog);
+        super(context, R.style.app_dialog);
         init();
     }
 
@@ -56,8 +58,27 @@ public class DeviceNoDialog extends Dialog {
         tv_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(et_password.length()>0){
-                    SharedPreferencesUtils.addData("device_no",et_password.getText().toString());
+                if (et_password.length() > 0) {
+                    if(SharedPreferencesUtils.readData("device_no")!=null){
+                        PushServiceFactory.getCloudPushService().removeAlias(SharedPreferencesUtils.readData("device_no"), new CommonCallback() {
+                            @Override
+                            public void onSuccess(String s) {
+                            }
+                            @Override
+                            public void onFailed(String s, String s1) {
+                            }
+                        });
+                    }
+                    SharedPreferencesUtils.addData("device_no", et_password.getText().toString());
+                    PushServiceFactory.getCloudPushService().addAlias(et_password.getText().toString(), new CommonCallback() {
+                        @Override
+                        public void onSuccess(String s) {
+                        }
+
+                        @Override
+                        public void onFailed(String s, String s1) {
+                        }
+                    });
                     dismiss();
                 }
             }
