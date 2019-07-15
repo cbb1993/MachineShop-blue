@@ -34,7 +34,7 @@ public class AppApplication extends VendApplication {
     }
 
     public static void addVolume(){
-        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, currentVolume + 3, 1);
+        mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), 1);
     }
 
 
