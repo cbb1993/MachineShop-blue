@@ -23,7 +23,7 @@ public class AppApplication extends VendApplication {
         mInstance = this;
         initPushService(this);
 
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bg_30s);
+
     }
 
 
