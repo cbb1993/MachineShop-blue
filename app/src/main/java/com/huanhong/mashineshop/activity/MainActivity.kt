@@ -81,14 +81,12 @@ class MainActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        AppApplication.addVolume()
         AppApplication.mediaPlayer.pause()
         TcnVendIF.getInstance().registerListener(m_vendListener)
     }
 
     override fun onPause() {
         super.onPause()
-        AppApplication.resetVolume()
         TcnVendIF.getInstance().unregisterListener(m_vendListener)
     }
 
