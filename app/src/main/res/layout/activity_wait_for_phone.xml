@@ -16,6 +16,7 @@
         android:src="@mipmap/kakao_bg" />
 
    <Button
+       android:visibility="gone"
        android:id="@+id/skip"
        android:textColor="#fff"
        android:background="#000"
