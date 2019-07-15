@@ -58,4 +58,8 @@ class StartActivity:BaseActivity(){
         })
 
     }
+
+    override fun onBackPressed() {
+
+    }
 }
