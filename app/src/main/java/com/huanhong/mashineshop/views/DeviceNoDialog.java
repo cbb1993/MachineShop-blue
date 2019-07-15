@@ -59,7 +59,7 @@ public class DeviceNoDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 if (et_password.length() > 0) {
-                    if(SharedPreferencesUtils.readData("device_no")!=null){
+                    if(SharedPreferencesUtils.readData("device_no")!=null&& !SharedPreferencesUtils.readData("device_no").equals("")){
                         PushServiceFactory.getCloudPushService().removeAlias(SharedPreferencesUtils.readData("device_no"), new CommonCallback() {
                             @Override
                             public void onSuccess(String s) {
