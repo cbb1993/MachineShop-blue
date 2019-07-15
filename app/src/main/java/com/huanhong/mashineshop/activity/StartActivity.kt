@@ -3,12 +3,15 @@ package com.huanhong.mashineshop.activity
 import android.content.Intent
 import com.alibaba.sdk.android.push.CommonCallback
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory
+import com.huanhong.mashineshop.AppApplication
 import com.huanhong.mashineshop.BaseActivity
-import com.huanhong.mashineshop.R
 import com.huanhong.mashineshop.views.PasswordDialog
 import com.tcn.latticelpstkboard.control.TcnVendIF
 import controller.VendService
 import kotlinx.android.synthetic.main.activity_start.*
+import com.huanhong.mashineshop.AppApplication.mediaPlayer
+import com.huanhong.mashineshop.R
+
 
 class StartActivity:BaseActivity(){
     override fun getContentViewId(): Int {
@@ -36,11 +39,15 @@ class StartActivity:BaseActivity(){
 
             false
         }
+
+        AppApplication.mediaPlayer.isLooping = true
     }
 
 
     override fun onResume() {
         super.onResume()
+        mediaPlayer.start()
+
         unbind()
     }
     private fun unbind() {

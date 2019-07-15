@@ -33,7 +33,7 @@ public class FailureActivity extends BaseActivity {
         findViewById(R.id.rl_again).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FailureActivity.this,MainActivity.class));
+                startActivity(new Intent(FailureActivity.this,ReadyActivity.class));
             }
         });
     }

@@ -35,7 +35,7 @@ public class WaitForPhoneConfirmActivity extends BaseActivity {
         findViewById(R.id.skip).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WaitForPhoneConfirmActivity.this, MainActivity.class));
+                startActivity(new Intent(WaitForPhoneConfirmActivity.this, ReadyActivity.class));
             }
         });
 
@@ -57,7 +57,7 @@ public class WaitForPhoneConfirmActivity extends BaseActivity {
     public void receive(ReceiveEvent event) {
         // 收到确认消息 跳转游戏
         if ("GameStart".equals(event.title)) {
-            startActivity(new Intent(WaitForPhoneConfirmActivity.this, MainActivity.class));
+            startActivity(new Intent(WaitForPhoneConfirmActivity.this, ReadyActivity.class));
             unbind();
         }
     }

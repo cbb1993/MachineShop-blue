@@ -211,6 +211,7 @@
         <activity android:name=".activity.StartGameActivity" android:launchMode="singleTask"/>
         <activity android:name="latticelpstkdemo.MainAct" />
         <activity android:name=".activity.EmptyActivity" android:launchMode="singleTask"/>
+        <activity android:name=".activity.ReadyActivity" />
 
 
         <receiver
