@@ -14,6 +14,7 @@ import com.tcn.latticelpstkboard.control.TcnVendIF
 import controller.VendService
 import kotlinx.android.synthetic.main.activity_start.*
 import com.huanhong.mashineshop.R
+import com.huanhong.mashineshop.utils.SharedPreferencesUtils
 
 
 class StartActivity : BaseActivity() {
@@ -52,6 +53,12 @@ class StartActivity : BaseActivity() {
         }
 
 
+        if(SharedPreferencesUtils.readData("device_no")!=null&&SharedPreferencesUtils.readData("device_no")!=""){
+            PushServiceFactory.getCloudPushService().addAlias(SharedPreferencesUtils.readData("device_no"), object : CommonCallback {
+                override fun onSuccess(s: String) {}
+                override fun onFailed(s: String, s1: String) {}
+            })
+        }
     }
 
     override fun onStart() {
