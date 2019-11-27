@@ -7,12 +7,15 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.huanhong.mashineshop.R;
 import com.huanhong.mashineshop.activity.GoodsNumberActivity;
+import com.huanhong.mashineshop.utils.SharedPreferencesUtils;
 import com.tcn.latticelpstkboard.control.TcnVendIF;
 
 /**
@@ -29,6 +32,7 @@ public class ChooseDialog extends Dialog {
     }
 
     private TextView tv_open, tv_finish,tv_no;
+    private CheckBox cb_skip;
 
     private void init() {
         setContentView(R.layout.dialog_choose);
@@ -44,6 +48,7 @@ public class ChooseDialog extends Dialog {
         tv_open = findViewById(R.id.tv_open);
         tv_finish = findViewById(R.id.tv_finish);
         tv_no = findViewById(R.id.tv_no);
+        cb_skip = findViewById(R.id.cb_skip);
 
         tv_open.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +70,16 @@ public class ChooseDialog extends Dialog {
             public void onClick(View v) {
                 dismiss();
                 new DeviceNoDialog(getContext()).show();
+            }
+        });
+
+        boolean b =SharedPreferencesUtils.readBooleanData("skip",false);
+        cb_skip.setChecked(b);
+        cb_skip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferencesUtils.addData("skip",isChecked);
+                dismiss();
             }
         });
     }

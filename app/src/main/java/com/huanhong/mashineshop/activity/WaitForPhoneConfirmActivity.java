@@ -32,7 +32,12 @@ public class WaitForPhoneConfirmActivity extends BaseActivity {
         super.initView();
         EventBus.getDefault().register(this);
 
-        findViewById(R.id.skip).setOnClickListener(new View.OnClickListener() {
+        boolean b =SharedPreferencesUtils.readBooleanData("skip",false);
+        View skip = findViewById(R.id.skip);
+        if(b){
+            skip.setVisibility(View.VISIBLE);
+        }
+        skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WaitForPhoneConfirmActivity.this, ReadyActivity.class));
